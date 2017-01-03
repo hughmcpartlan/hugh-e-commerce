@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'hello',
     'accounts',
     'django_forms_bootstrap',
+    'blog',
+    'django.contrib.sites',
+    'disqus',
 ]
 
 MIDDLEWARE = [
@@ -123,9 +126,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 AUTH_USER_MODEL = 'accounts.User'
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'accounts.backends.EmailAuth',
 )
+
+DISQUS_WEBSITE_SHORTNAME = 'hugh-e-commerce'
+SITE_ID=1
+
